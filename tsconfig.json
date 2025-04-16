@@ -1,6 +1,8 @@
 {
    "compilerOptions": {
-      "composite": true
+      "composite": true,
+      "declaration": true,
+      "outDir": "./dist",
    },
    "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }

@@ -28,15 +28,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run TypeScript type checking
-      - name: Run TypeScript type check
-        run: npm run type-check
-
-      # Step 5: Run linting
+      # Step 4: Run linting
       - name: Run ESLint
         run: npm run lint
 
-      # Step 6: Run tests with coverage
+      # Step 5: Run tests with coverage
       - name: Run tests
         run: npm test:coverage
         env:

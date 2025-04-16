@@ -34,6 +34,10 @@ jobs:
 
       # Step 5: Run tests with coverage
       - name: Run tests
-        run: npm test:coverage
+        run: |
+         echo "Available npm scripts:"
+         npm run
+         echo "Running tests with coverage:"
+         npm run test:coverage
         env:
-          CI: true
+         CI: true

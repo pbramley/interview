@@ -1,3 +1,5 @@
+![CI](https://github.com/pbramley/interview/actions/workflows/ci.yml/badge.svg)
+
 # React + TypeScript Baseline Project
 
 This repository is a clean, modern React + TypeScript setup intended for technical interviews, coding exercises, and small experiments. It includes sensible defaults for styling, linting, routing, and component structure, designed to let me hit the ground running.

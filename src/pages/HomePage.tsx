@@ -2,10 +2,11 @@ import { LookupForm } from '../components/shared/form/LookupForm';
 import React from 'react';
 
 /**
- * Default placeholder page.
+ * Default placeholder home page.
  * @returns
  */
 export const HomePage = (): React.JSX.Element => {
+  
    /**
     * Callback function to invoke when our form is submitted.
     */

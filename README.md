@@ -1,54 +1,44 @@
-# React + TypeScript + Vite
+# React + TypeScript Baseline Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository is a clean, modern React + TypeScript setup intended for technical interviews, coding exercises, and small experiments. It includes sensible defaults for styling, linting, routing, and component structure, designed to let me hit the ground running.
 
-Currently, two official plugins are available:
+## ✨ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚛️ [React](https://reactjs.org/)
+- 🧠 [TypeScript](https://www.typescriptlang.org/)
+- 🛠 [Vite](https://vitejs.dev/) for fast dev builds
+- 📦 [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) for linting and formatting
+- 🧭 [React Router](https://reactrouter.com/) for future multi-page setups
+- 🧪 [Testing Library](https://testing-library.com/) (optional)
+- 💅 CSS Modules for scoped styles
+- 📁 Path aliasing (`@components`, `@utils`, etc.)
 
-## Expanding the ESLint configuration
+## 🧱 Folder Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/ ├── components/ # Shared UI components ├── pages/ # Route-level components (can be expanded) ├── utils/ # Utility functions ├── hooks/ # Custom React hooks ├── services/ # API logic or data access └── App.tsx # Entry component
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🚀 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+npm install
+npm run dev
+Then open http://localhost:5173 in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🧹 Code Quality
+This project enforces code quality and consistency with:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+ESLint for catching issues
+Prettier for formatting
+Auto-format on save in VSCode (see .vscode/settings.json)
+
+Run manually:
+npm run lint
+npm run format
+
+🧪 Testing (Optional)
+If you enable testing, structure tests under __tests__ or co-located with components using .test.tsx.
+
+🤝 Usage
+This repo is for personal use, interview prep, and technical exercises. You’re welcome to explore and fork it.
+
+Licensed under the MIT License.

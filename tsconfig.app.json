@@ -31,8 +31,7 @@
          "@pages/*": ["pages/*"],
          "@utils/*": ["utils/*"],
          "@services/*": ["services/*"],
-         "@hooks/*": ["hooks/*"],
-         "@types/*": ["types/*"]
+         "@hooks/*": ["hooks/*"]
       },
       "types": ["jest", "node"]
    },

@@ -15,7 +15,18 @@ This repository is a clean, modern React + TypeScript setup intended for technic
 
 ## 🧱 Folder Structure
 
-src/ ├── components/ # Shared UI components ├── pages/ # Route-level components (can be expanded) ├── utils/ # Utility functions ├── hooks/ # Custom React hooks ├── services/ # API logic or data access └── App.tsx # Entry component
+```plaintext
+src/
+├── components/         # Shared UI components
+│   ├── shared/         # Shared components across the app
+│   ├── domain/         # Domain-specific components
+├── pages/              # Route-level components
+├── utils/              # Utility functions
+│   ├── constants/      # Shared constants
+├── hooks/              # Custom React hooks
+├── services/           # API logic or data access
+└── App.tsx             # Entry component
+```
 
 ## 🚀 Getting Started
 

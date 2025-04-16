@@ -4,5 +4,9 @@
       "declaration": true,
       "outDir": "./dist",
    },
-   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+   "exclude": [
+      "node_modules",
+      "vite.config.ts"  // Exclude the Vite config from being built
+    ]
 }

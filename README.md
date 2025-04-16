@@ -22,6 +22,7 @@ src/
 ├── components/         # Shared UI components
 │   ├── shared/         # Shared components across the app
 │   ├── domain/         # Domain-specific components
+├── context/            # Context providers for shared state
 ├── pages/              # Route-level components
 ├── utils/              # Utility functions
 │   ├── constants/      # Shared constants

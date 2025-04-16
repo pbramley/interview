@@ -36,7 +36,7 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-      # Step 6: Run tests
+      # Step 6: Run tests with coverage
       - name: Run tests
         run: npm test:coverage
         env:

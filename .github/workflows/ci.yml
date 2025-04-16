@@ -1,0 +1,53 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - 'feature/*'  # Adjust to match your branch naming convention
+  pull_request:
+    branches:
+      - main
+      - master
+  # Optionally, you can trigger it on a schedule
+  # schedule:
+  #   - cron: '0 0 * * *' # Run every day at midnight
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run ESLint
+      run: npm run lint
+
+    - name: Run tests
+      run: npm test
+
+    - name: Run Prettier formatting check
+      run: npm run format -- --check
+
+    - name: Commit and push formatting changes (optional)
+      if: ${{ always() }} && steps.prettier.outputs.changed == 'true'
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add .
+        git commit -m "fix: auto-format files"
+        git push

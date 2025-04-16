@@ -6,20 +6,19 @@ import React from 'react';
  * @returns
  */
 export const HomePage = (): React.JSX.Element => {
+   /**
+    * Callback function to invoke when our form is submitted.
+    */
+   const handleSearch = (): void => {
+      console.log('Ready to perform the search');
+   };
 
-  /**
-   * Callback function to invoke when our form is submitted.
-   */
-  const handleSearch = (): void => {
-    console.log('Ready to perform the search');
-  };
-
-  return (
-    <div>
-      <h1>Home</h1>
-      <LookupForm onSubmit={handleSearch} />
-    </div>
-  );
+   return (
+      <div>
+         <h1>Home</h1>
+         <LookupForm onSubmit={handleSearch} />
+      </div>
+   );
 };
 
 export default HomePage;

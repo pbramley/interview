@@ -1,27 +1,27 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
+   "root": true,
+   "parser": "@typescript-eslint/parser",
+   "parserOptions": {
       "project": ["./tsconfig.json"],
       "tsconfigRootDir": ".",
       "sourceType": "module"
-    },
-    "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
-    "extends": [
+   },
+   "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+   "extends": [
       "eslint:recommended",
       "plugin:react/recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:react-hooks/recommended",
       "plugin:prettier/recommended"
-    ],
-    "rules": {
+   ],
+   "rules": {
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off", // not needed with React 17+
       "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }]
-    },
-    "settings": {
+   },
+   "settings": {
       "react": {
-        "version": "detect"
+         "version": "detect"
       }
-    }
-  }
+   }
+}

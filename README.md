@@ -53,3 +53,4 @@ If you enable testing, structure tests under __tests__ or co-located with compon
 This repo is for personal use, interview prep, and technical exercises. You’re welcome to explore and fork it.
 
 Licensed under the MIT License.
+```

@@ -4,17 +4,16 @@ import { fetchApi } from './fetchApi';
  * Interface definition representing the object type we're trying to send/receive from the server.
  */
 interface MyData {
-    // Piece of data. 
-    data: string;
+   // Piece of data.
+   data: string;
 }
-
 
 /**
  * Fetches user data from the /user endpoint.
  * @returns
  */
 export const fetchData = () => {
-  fetchApi.get<MyData>('/data');
+   fetchApi.get<MyData>('/data');
 };
 
 /**
@@ -23,5 +22,5 @@ export const fetchData = () => {
  * @returns
  */
 export const createData = (data: Partial<MyData>) => {
-  fetchApi.post('/myData', data);
+   fetchApi.post('/myData', data);
 };

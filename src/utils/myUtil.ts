@@ -1,6 +1,7 @@
 /**
  *
  */
-export const helperUtilFunction = (): void => {
-   console.log('Here is my helper function utility!');
+export const helperUtilFunction = ( value: string): void => {
+   console.log('Here is my helper function utility: ' + value);
 };
+

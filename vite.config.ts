@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import checker from 'vite-plugin-checker'; // 👈 import the plugin
 
 export default defineConfig({
-   plugins: [react()],
+   plugins: [
+      react(),
+      checker({ typescript: true }), // 👈 enables type checking
+   ],
    resolve: {
       alias: {
          '@components': path.resolve(__dirname, './src/components'),

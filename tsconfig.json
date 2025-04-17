@@ -1,12 +1,33 @@
 {
    "compilerOptions": {
-      "composite": true,
-      "declaration": true,
-      "outDir": "./dist",
+     "target": "ES2020",
+     "module": "ESNext",
+     "moduleResolution": "bundler",
+     "esModuleInterop": true,
+     "jsx": "react-jsx",
+     "skipLibCheck": true,
+     "composite": false,
+     "outDir": "./dist",
+     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+     "isolatedModules": true,
+     "useDefineForClassFields": true,
+     "noEmit": false,  // Enable emitting files (if needed for production)
+     "declaration": false,  // Disable declaration files if not required
+     "strict": true,
+     "noUnusedLocals": true,
+     "noUnusedParameters": true,
+     "noFallthroughCasesInSwitch": true,
+     "noUncheckedSideEffectImports": true,
+     "baseUrl": "./src",
+     "paths": {
+       "@components/*": ["components/*"],
+       "@pages/*": ["pages/*"],
+       "@utils/*": ["utils/*"],
+       "@services/*": ["services/*"],
+       "@hooks/*": ["hooks/*"]
+     },
+     "types": ["jest", "node"]
    },
-   "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
-   "exclude": [
-      "node_modules",
-      "vite.config.ts"  // Exclude the Vite config from being built
-    ]
-}
+   "include": ["src", "jest.setup.ts"],
+   "exclude": ["node_modules", "dist"]  // Exclude node_modules and dist folders
+ }

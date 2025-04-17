@@ -1,21 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from '@pages/HomePage';
+import { useTheme } from '@context/ThemeContext';
+import styles from './App.module.css';
 
 /**
  * Entry point for the React application. Sets up the basic routes, and allows us to launch
  * our application.
- * @returns 
+ * @returns
  */
 export const App = (): React.JSX.Element => {
+   const { theme, toggleTheme } = useTheme();
+
    return (
-      <Router>
-         <div>
-            <Routes>
-               <Route path="/" element={<HomePage />} />
-            </Routes>
-         </div>
-      </Router>
+      <div className={styles[theme]}>
+         <button onClick={toggleTheme}>Toggle theme</button>
+         <Router>
+            <div>
+               <Routes>
+                  <Route path="/" element={<HomePage />} />
+               </Routes>
+            </div>
+         </Router>
+      </div>
+      
    );
 };
 

@@ -1,5 +1,5 @@
 import { useSearch } from '@hooks/useSearch';
-import { LookupForm } from '../components/shared/form/LookupForm';
+import { LookupForm } from '../components/shared/form/SearchForm';
 import React, { useState } from 'react';
 import { SearchResults } from '@components/domain/searchResults/SearchResults';
 

@@ -1,27 +1,21 @@
 // useSearchUsers.ts
 import { useState, useEffect } from 'react';
 import type { SearchResult } from '../types/searchResult';
-
-// Mocked response data
-const mockData: SearchResult[] = [
-   { id: '1', name: 'Alice', email: 'alice@example.com' },
-   { id: '2', name: 'Bob', email: 'bob@example.com' },
-   { id: '3', name: 'Charlie', email: 'charlie@example.com' },
-];
+import { fetchSearchResults } from '@services/myService';
 
 /**
  * Interface defining the props to be provided to the {@code useSearch} hook below.
  */
 export interface UseSearchProps {
    /**
-    * Query string to be provided to the useSearch hook.
+    * Query string to be used for filtering the result set.
     */
    query?: string;
 }
 
 /**
  * Hook to perform a search, with the provided query string.
- * @param query search string
+ * @param query Query string to be used for filtering the result set.
  */
 export const useSearch = ({ query }: UseSearchProps) => {
    const [data, setData] = useState<SearchResult[] | null>(null);
@@ -29,23 +23,33 @@ export const useSearch = ({ query }: UseSearchProps) => {
    const [error, setError] = useState<string | null>(null);
 
    useEffect(() => {
-      setLoading(true);
-      setError(null);
+      const fetchData = async () => {
+         setLoading(true);
+         setError(null);
 
-      // Simulate a server request with an artificial delay
-      setTimeout(() => {
-         // Filter out the mock data based on the provided query string.
-         const filteredData = mockData.filter((user) => {
-            return query ? user.name.toLowerCase().includes(query.toLowerCase()) : true;
-         });
+         try {
+            const results = await fetchSearchResults();
 
-         if (filteredData.length === 0) {
-            setError('No data found');
+            // Filter results using the query string.
+            const filtered = query
+               ? results.filter((user) =>
+                    user.name.toLowerCase().includes(query.toLowerCase())
+                 )
+               : results;
+
+            if (filtered.length === 0) {
+               setError('No data found');
+            }
+
+            setData(filtered);
+         } catch (err) {
+            setError('Failed to fetch data: ' + err );
+         } finally {
+            setLoading(false);
          }
+      };
 
-         setData(filteredData);
-         setLoading(false);
-      }, 1000);
+      fetchData();
    }, [query]);
 
    return { data, loading, error };

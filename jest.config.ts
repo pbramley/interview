@@ -14,6 +14,7 @@ const config: Config = {
       '^@utils/(.*)$': '<rootDir>/src/utils/$1',
       '^@services/(.*)$': '<rootDir>/src/services/$1',
       '^@hooks/(.*)$': '<rootDir>/src/hooks/$1',
+      '^@context/(.*)$': '<rootDir>/src/context/$1',
       '\\.module\\.css$': 'identity-obj-proxy',
    },
    setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

@@ -4,6 +4,11 @@ import { useSearch } from './useSearch';
 
 jest.useFakeTimers();
 
+/**
+ * Test component wrapping usage of the {@link useSearch} hook.
+ * @param query Query string to be provided for data filtering.
+ * @returns 
+ */
 const HookTestComponent = ({ query }: { query?: string }) => {
   const { data, loading, error } = useSearch({ query });
 
@@ -24,24 +29,25 @@ const HookTestComponent = ({ query }: { query?: string }) => {
 
 describe('useSearch', () => {
   test('shows loading initially', () => {
-    render(<HookTestComponent query="Alice" />);
+    render(<HookTestComponent query="Test User 1" />);
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 
-  test('returns filtered results after timeout', () => {
-    render(<HookTestComponent query="Alice" />);
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
+  test('returns filtered results after timeout', async () => {
+    render(<HookTestComponent query="Test User 1" />);
+    await act(async () => {
+        jest.advanceTimersByTime(2000);
+      });
 
+    screen.logTestingPlaygroundURL();
     expect(screen.queryByTestId('loading')).not.toBeInTheDocument();
     expect(screen.queryByTestId('error')).not.toBeInTheDocument();
-    expect(screen.getByTestId('results')).toHaveTextContent('Alice');
+    expect(screen.getByTestId('results')).toHaveTextContent('Test User 1');
   });
 
-  test('shows error when no match', () => {
+  test('shows error when no match', async () => {
     render(<HookTestComponent query="Zelda" />);
-    act(() => {
+    await act(() => {
       jest.advanceTimersByTime(1000);
     });
 
@@ -50,9 +56,9 @@ describe('useSearch', () => {
     expect(screen.queryByTestId('results')).toBeInTheDocument(); // Empty list
   });
 
-  test('shows all data if query is undefined', () => {
+  test('shows all data if query is undefined', async () => {
     render(<HookTestComponent />);
-    act(() => {
+    await act(() => {
       jest.advanceTimersByTime(1000);
     });
 

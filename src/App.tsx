@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from '@pages/HomePage';
-import { useTheme } from '@context/ThemeContext';
 import styles from './App.module.css';
+import { useTheme } from '@context/themeContext/useTheme';
 
 /**
  * Entry point for the React application. Sets up the basic routes, and allows us to launch
@@ -23,7 +23,6 @@ export const App = (): React.JSX.Element => {
             </div>
          </Router>
       </div>
-      
    );
 };
 

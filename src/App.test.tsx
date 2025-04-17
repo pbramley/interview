@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { ThemeProvider } from '@context/ThemeContext';
+import { ThemeProvider } from '@context/themeContext/ThemeProvider';
 
 export const TestComponent = (): React.JSX.Element => {
    return (

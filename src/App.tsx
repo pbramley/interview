@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from '@pages/HomePage';
 import styles from './App.module.css';
 import { useTheme } from '@context/themeContext/useTheme';
+import './styles/variables.css';
 
 /**
  * Entry point for the React application. Sets up the basic routes, and allows us to launch
@@ -11,6 +12,14 @@ import { useTheme } from '@context/themeContext/useTheme';
  */
 export const App = (): React.JSX.Element => {
    const { theme, toggleTheme } = useTheme();
+
+   /**
+    * Listens to changes in theme from the context provider, and sets the data-theme 
+    * for the overall application.
+    */
+   useEffect(() => {
+      document.documentElement.setAttribute('data-theme', theme);
+   }, [theme]);
 
    return (
       <div className={styles[theme]}>

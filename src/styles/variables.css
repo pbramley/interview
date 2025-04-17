@@ -1,0 +1,18 @@
+:root {
+    --color-primary: #1e40af;
+    --color-secondary: #64748b;
+    --color-background: #f9fafb;
+    --color-border: #e2e8f0;
+    --color-text: #1f2937;
+    --color-error: #dc2626;
+  
+    --font-base: 'Inter', sans-serif;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+  }
+  
+  [data-theme='dark'] {
+    --color-text: #f9fafb;
+    --color-background: #1f2937;
+  }

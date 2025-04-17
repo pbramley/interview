@@ -19,6 +19,13 @@ export interface SearchResultsTableProps {
    * Error string, to be used in cases that the data could not be retrieved.
    */
   error: string | null;
+
+  /**
+   * Callback to allow the user to click a particular Row ID.
+   * @param selectedId Id of the row that's been selected.
+   * @returns 
+   */
+  selectRow?: (selectedId: number) => void;
 }
 
 /**
@@ -26,9 +33,10 @@ export interface SearchResultsTableProps {
  * @param loading Whether or not the results are still being loaded asynchronously from the server.
  * @param data The data to be displayed.
  * @param error Whether or not an error has been returned from the server request.
+ * @param selectRow callback to allow the user to click a particular Row ID.
  * @returns 
  */
-export const SearchResultsTable = ({ loading, data, error }: SearchResultsTableProps): React.JSX.Element => {
+export const SearchResultsTable = ({ loading, data, error, selectRow }: SearchResultsTableProps): React.JSX.Element => {
   if (loading) {
     return <div>Loading...</div>; 
   }
@@ -49,7 +57,17 @@ export const SearchResultsTable = ({ loading, data, error }: SearchResultsTableP
       <tbody>
         {data?.map((result) => (
           <tr className={styles['tr']} key={result.id}>
-            <td className={styles['td']}>{result.id}</td>
+            <td className={styles['td']}>
+            <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  selectRow?.(result.id); 
+                }}
+              >
+                {result.id}
+              </a>
+            </td>
             <td className={styles['td']}>{result.name}</td>
             <td className={styles['td']}>{result.email}</td>
           </tr>

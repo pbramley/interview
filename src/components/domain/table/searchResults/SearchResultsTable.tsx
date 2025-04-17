@@ -5,9 +5,19 @@ import styles from './SearchResultsTable.module.css';
 /**
  * Interface defining the props to be provided to the {@code SearchResults} component.
  */
-export interface SearchResultsProps {
+export interface SearchResultsTableProps {
+  /**
+   * Flag to indicate that the results are still loading.
+   */
   loading: boolean;
+  /**
+   * The list of search results to be rendered in the table.
+   */
   data: SearchResult[] | null;
+  
+  /**
+   * Error string, to be used in cases that the data could not be retrieved.
+   */
   error: string | null;
 }
 
@@ -18,7 +28,7 @@ export interface SearchResultsProps {
  * @param error Whether or not an error has been returned from the server request.
  * @returns 
  */
-export const SearchResultsTable = ({ loading, data, error }: SearchResultsProps): React.JSX.Element => {
+export const SearchResultsTable = ({ loading, data, error }: SearchResultsTableProps): React.JSX.Element => {
   if (loading) {
     return <div>Loading...</div>; 
   }

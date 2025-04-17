@@ -27,7 +27,7 @@ export const delay = (ms = LATENCY_MS): Promise<void> => {
  * Mimics the request to fetch results from the server.
  * @returns 
  */
-export async function fetchSearchResults(): Promise<SearchResult[]> {
+export const fetchSearchResults = async (): Promise<SearchResult[]> => {
   await delay(LATENCY_MS);
   return [...serverItems];
 }
@@ -38,7 +38,7 @@ export async function fetchSearchResults(): Promise<SearchResult[]> {
  * @param email Email prop to be set on the new item.
  * @returns Promise with the newly created SearchResult.
  */
-export async function createTask(name: string, email: string): Promise<SearchResult> {
+export const createSearchResult = async (name: string, email: string): Promise<SearchResult> => {
   // Mimic server delay.
   await delay(LATENCY_MS); 
 

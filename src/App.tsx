@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from '@pages/HomePage';
 import styles from './App.module.css';
 import { useTheme } from '@context/themeContext/useTheme';
-import './styles/variables.css';
 
 /**
  * Entry point for the React application. Sets up the basic routes, and allows us to launch

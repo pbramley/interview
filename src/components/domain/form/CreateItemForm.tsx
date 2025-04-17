@@ -24,7 +24,7 @@ interface ResponseData {
 /**
  * Form used to enter basic item information.
  */
-export const ItemEntryForm = (): JSX.Element => {
+export const CreateItemForm = (): JSX.Element => {
    const [name, setName] = useState('');
    const [quantity, setQuantity] = useState('');
    const [error, setError] = useState('');
@@ -73,7 +73,7 @@ export const ItemEntryForm = (): JSX.Element => {
             quantity: Number(quantity),
          });
 
-         if(response.status === 'success') {
+         if (response.status === 'success') {
             setSuccess(true);
          }
 

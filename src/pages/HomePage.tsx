@@ -1,21 +1,15 @@
 import React from 'react';
+import styles from './HomePage.module.css';
 
 /**
  * Default placeholder home page.
  * @returns
  */
 export const HomePage = (): React.JSX.Element => {
-   
-   const onSearch = (): void => {
-      console.log('Navigating to search page.');
-      Route
-   }
-   
    return (
-      <div>
+      <div className={styles['home-page']}>
          <h1>Home</h1>
-         <button>Search items</button>
-         <button>Create items</button>
+         <p>Select an option from the sidebar.</p>
       </div>
    );
 };

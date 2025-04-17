@@ -1,5 +1,5 @@
 import React from 'react';
-import { ItemEntryForm } from '@components/domain/form/ItemEntryForm';
+import { CreateItemForm } from '@components/domain/form/CreateItemForm';
 
 /**
  * Default placeholder item entry page.
@@ -8,8 +8,8 @@ import { ItemEntryForm } from '@components/domain/form/ItemEntryForm';
 export const ItemEntryPage = (): React.JSX.Element => {
    return (
       <div>
-         <h1>Home</h1>
-         <ItemEntryForm />
+         <h1>Create Item</h1>
+         <CreateItemForm />
       </div>
    );
 };

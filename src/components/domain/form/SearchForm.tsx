@@ -6,7 +6,7 @@ const DEBOUNCE_TIMER = 350;
 /**
  * Props to be provided to the {@code LookupForm} component.
  */
-export interface LookupFormProps {
+export interface SearchFormProps {
    /**
     *
     * @param searchString string to search for.
@@ -20,7 +20,7 @@ export interface LookupFormProps {
  * @param onSubmit callback to be invoked when the form is submitted.
  * @returns
  */
-export const SearchForm = ({ onSearchInputChange }: LookupFormProps) => {
+export const SearchForm = ({ onSearchInputChange }: SearchFormProps) => {
    const [input, setInput] = useState('');
    const [debouncedInput, setDebouncedInput] = useState('');
    

@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from '@pages/HomePage';
+import SearchPage from '@pages/SearchPage';
+import ItemEntryPage from '@pages/ItemEntryPage';
 import styles from './App.module.css';
 import { useTheme } from '@context/themeContext/useTheme';
 
@@ -27,6 +29,8 @@ export const App = (): React.JSX.Element => {
             <div>
                <Routes>
                   <Route path="/" element={<HomePage />} />
+                  <Route path="/search" element={<SearchPage />} />
+                  <Route path="/create" element={<ItemEntryPage />} />
                </Routes>
             </div>
          </Router>

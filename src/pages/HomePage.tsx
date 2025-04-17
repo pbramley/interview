@@ -1,17 +1,21 @@
 import React from 'react';
-import { ItemEntryForm } from '@components/domain/form/ItemEntryForm';
 
 /**
  * Default placeholder home page.
  * @returns
  */
 export const HomePage = (): React.JSX.Element => {
+   
+   const onSearch = (): void => {
+      console.log('Navigating to search page.');
+      Route
+   }
+   
    return (
       <div>
          <h1>Home</h1>
-         <ItemEntryForm />
-         {/* <SearchForm onSearchInputChange={onSearchInputChange} /> */}
-         {/* <SearchResultsTable loading={loading} data={data} error={error} /> */}
+         <button>Search items</button>
+         <button>Create items</button>
       </div>
    );
 };
